@@ -3,6 +3,8 @@ import AlertMessage from "./components/AlertMessage";
 import Card from "./components/Card";
 import { BsCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import Pricing from "./components/Pricing";
+import Counter from "./components/Counter";
+import Person from "./components/Person";
 
 const App = () => {
   const apiResponse = {
@@ -15,6 +17,8 @@ const App = () => {
   };
   return (
     <>
+      <Person />
+      <Counter />
       {apiResponse && apiResponse.status === 200 && (
         <AlertMessage
           icon={<BsCheckCircleFill />}
@@ -24,13 +28,13 @@ const App = () => {
       )}
       {apiResponse && apiResponse.status === 400 && (
         <AlertMessage
-          icon={< BsFillXCircleFill/>}
+          icon={<BsFillXCircleFill />}
           type="danger"
           message={apiResponse.message}
         />
       )}
 
-    <Pricing />
+      <Pricing />
     </>
   );
 };
